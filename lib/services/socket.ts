@@ -88,8 +88,8 @@ class SocketService {
     this.emit('leave_conversation', { conversationId })
   }
 
-  sendMessage(conversationId: string, content: string, type: 'text' | 'file' | 'audio' = 'text'): void {
-    this.emit('send_message', { conversationId, content, type })
+  sendMessage(conversationId: string, content: string): void {
+    this.emit('send_message', { conversationId, content })
   }
 
   setTyping(conversationId: string, isTyping: boolean): void {
@@ -98,10 +98,6 @@ class SocketService {
 
   markAsRead(conversationId: string): void {
     this.emit('mark_as_read', { conversationId })
-  }
-
-  sendTypingIndicator(conversationId: string): void {
-    this.emit('user_typing', { conversationId })
   }
 }
 
